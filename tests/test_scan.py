@@ -63,7 +63,7 @@ EMPTY_OFFERS_HOME = """<!doctype html><html><head><title>NoPrice Co</title></hea
 
 
 def test_empty_offers_is_not_machine_visible_pricing() -> None:
-    # Regression (PR #40 Terra review): a bare offers object with no price must
+    # Regression (second-model review): a bare offers object with no price must
     # NOT count as machine-visible pricing.
     with _client({"/": (200, EMPTY_OFFERS_HOME)}) as c:
         r = scan_site(c, "svc", "NoPrice", "https://noprice.example")
@@ -93,7 +93,7 @@ def test_robots_ai_policy_specific_groups() -> None:
 
 
 def test_robots_wildcard_block_all_blocks_every_ai_crawler() -> None:
-    # Regression (PR #40 Terra review): `User-agent: * / Disallow: /` blocks all
+    # Regression (second-model review): `User-agent: * / Disallow: /` blocks all
     # AI crawlers — it must NOT read as default-open.
     policy = robots_ai_policy("User-agent: *\nDisallow: /")
     assert policy.wildcard_blocks_all

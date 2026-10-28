@@ -88,8 +88,8 @@ pydantic-… loguru-…`.
 ## Section 4 — Verify the install on the target you actually care about
 
 **Do not verify on shipped example data** (`kits/KIT-STANDARD.md` § 4.10,
-own-data verification). The two folders under `runs/` are past rTech scans kept
-as a reference for what the output looks like — they are not the verification.
+own-data verification). The folder under `runs/` is a past rTech scan kept
+as a reference for what the output looks like — it is not the verification.
 Run the scan against the real site you were asked about, right now.
 
 With `uv` (3A):

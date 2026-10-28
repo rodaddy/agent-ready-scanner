@@ -2,7 +2,7 @@
 
 ## [Unreleased]
 
-- promoted from pocs/ to kits/ (#88)
+- promoted from proof of concept to a packaged kit (2026-09-10)
 
 ## 0.1.0 — 2026-08-17
 

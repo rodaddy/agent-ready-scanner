@@ -180,8 +180,8 @@ def _collect_pricing(
 def _offer_has_price(offers: Any) -> bool:
     """True only if a JSON-LD offers value carries an actual price.
 
-    A bare/empty ``offers`` object is not machine-visible pricing (PR #40
-    cross-family review, Terra, 2026-08-17).
+    A bare/empty ``offers`` object is not machine-visible pricing (regression
+    found in a second-model review, 2026-08-17).
     """
     stack = [offers]
     while stack:
