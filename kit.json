@@ -1,0 +1,9 @@
+{
+  "name": "agent-ready-scanner",
+  "version": "0.1.0",
+  "requirements": {
+    "runtimes": {
+      "python": ">=3.14"
+    }
+  }
+}

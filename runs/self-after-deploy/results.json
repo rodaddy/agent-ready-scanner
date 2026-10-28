@@ -1,0 +1,83 @@
+{
+  "generated_utc": "2026-08-17 06:01 UTC",
+  "scanner_version": "0.1.0",
+  "results": [
+    {
+      "vertical": "single",
+      "name": "https://rtech-consulting.com",
+      "url": "https://rtech-consulting.com",
+      "final_url": "https://rtech-consulting.com",
+      "ok": true,
+      "error": "",
+      "signals": {
+        "robots_txt": true,
+        "ai_crawlers_addressed": [],
+        "ai_crawlers_blocked": [],
+        "sitemap": true,
+        "llms_txt": true,
+        "llms_full_txt": true,
+        "mcp_json": false,
+        "ai_plugin_json": false,
+        "x402_seen": false,
+        "jsonld_types": [
+          "AdministrativeArea",
+          "ImageObject",
+          "Place",
+          "PostalAddress",
+          "ProfessionalService",
+          "Service",
+          "WebPage",
+          "WebSite"
+        ],
+        "title": true,
+        "meta_description": true,
+        "word_count_no_js": 736,
+        "text_ratio": 0.2756,
+        "js_wall": false,
+        "pricing_visible": true,
+        "tel_link": true,
+        "booking_link": false,
+        "schema_contact": true
+      },
+      "categories": {
+        "discovery": {
+          "points": 15.0,
+          "max": 15,
+          "notes": "robots.txt yes, sitemap yes"
+        },
+        "ai_access": {
+          "points": 7.0,
+          "max": 10,
+          "notes": "no AI crawler policy (default-open, unmanaged)"
+        },
+        "llms_txt": {
+          "points": 15.0,
+          "max": 15,
+          "notes": "llms.txt present"
+        },
+        "structured_data": {
+          "points": 25.0,
+          "max": 25,
+          "notes": "JSON-LD types: AdministrativeArea, ImageObject, Place, PostalAddress, ProfessionalService, Service, WebPage, WebSite"
+        },
+        "parseability": {
+          "points": 15.0,
+          "max": 15,
+          "notes": "736 words without JS"
+        },
+        "pricing": {
+          "points": 10.0,
+          "max": 10,
+          "notes": "prices machine-visible"
+        },
+        "contact_booking": {
+          "points": 7.0,
+          "max": 10,
+          "notes": "tel:yes schema-contact:yes booking:no"
+        }
+      },
+      "score": 94,
+      "grade": "A"
+    }
+  ]
+}
