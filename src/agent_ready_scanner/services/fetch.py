@@ -83,7 +83,8 @@ def robots_ai_policy(robots_txt: str) -> AiRobotsPolicy:
     bot (standard robots semantics). A wildcard ``Disallow: /`` therefore blocks
     every AI crawler that has no more-specific group — reported via
     ``wildcard_blocks_all`` so the scorer does not read a block-everything site
-    as "default-open" (PR #40 cross-family review, Terra, 2026-08-17).
+    as "default-open" (regression found in a
+    second-model review, 2026-08-17).
     """
     rules = _robots_rules(robots_txt)
     lowered = {agent.lower(): disallows for agent, disallows in rules.items()}
