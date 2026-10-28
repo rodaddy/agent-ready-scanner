@@ -150,10 +150,11 @@ One `results.json` and one `report.html` cover the whole batch.
   on 2026-08-24 after a tree move). Delete the venv and redo Section 3:
   `rm -rf .venv && uv sync --frozen`.
 - **The scan writes a report where every category is zero** — check the URL
-  responded at all. `results.json` records the HTTP status per probe; a site
-  that refused the connection scores zero for the same reason as a site with
-  nothing on it, and those are different findings. Read the JSON before writing
-  the number into anything client-facing.
+  responded at all. A site that refused the connection is not scored (it shows
+  `—` and `unreachable (...)`), but a home page that returns a 4xx, such as a
+  bot block, is scored and can read near zero. `results.json` does not record
+  per-probe HTTP statuses, so open the URL yourself before writing the number
+  into anything client-facing.
 - **The scan appears to hang** — it is fetching over the network with no JS
   engine. A slow or unresponsive host is the usual cause. Let one site finish
   before concluding the tool is stuck.

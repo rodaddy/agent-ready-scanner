@@ -33,10 +33,10 @@ the answer to act on. It does not touch the site and does not replace them.
 
 ## What it refuses to do
 
-**It never scores a site it could not read.** Deterministic trigger: the root
-document fetch does not return a 2xx HTML response — connection refused, DNS
-failure, timeout, non-HTML content type, or an error status. The site is
-reported as `NOT SCANNED — <reason>`, never as a zero and never as an F. A
+**It never scores a site it could not reach.** Deterministic trigger: the root
+document fetch fails (connection refused, DNS failure, timeout) or returns a
+5xx status; a 4xx or non-HTML home page is still scored. The site is reported
+as `unreachable (<reason>)` with `—` for score and grade, never as an F. A
 zero means the site is readable and has none of these signals; unreachable
 means we do not know, and collapsing the two in front of a client is the
 failure the refusal exists to prevent. Full statement:

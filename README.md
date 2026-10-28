@@ -65,10 +65,11 @@ vertical, into JSON and one offline HTML report. Results are Pydantic models
   price.
 - Emerging signals are recorded but not scored: `/.well-known/mcp.json`,
   `/.well-known/ai-plugin.json`, HTTP 402 responses.
-- It never scores a site it could not read. Connection failures, timeouts,
-  error statuses and non-HTML responses are reported as
-  `NOT SCANNED - <reason>`, never as a zero or an F. A zero means the site was
-  readable and has none of the signals. See `OPERATIONS-MANUAL.md` section 5.
+- It never scores a site it could not reach. A connection failure, DNS
+  failure, timeout or 5xx on the home page gets `ok: false` and an
+  `unreachable (<reason>)` error, shown as `—` in the report, not as a grade.
+  A 4xx or non-HTML home page is still scored. See `OPERATIONS-MANUAL.md`
+  section 5.
 
 Stack: Python 3.14, `httpx`, BeautifulSoup, Pydantic v2, loguru. Packaged as a
 `uv` app (`pyproject.toml`, `uv.lock`) with a generated `requirements.txt`.
@@ -89,6 +90,9 @@ offline: they drive the scanner through `httpx.MockTransport`.
 `runs/self-after-deploy/` holds a sample `report.html` and `results.json` from
 an earlier scan of rtech-consulting.com. A score is a snapshot of a site on its
 scan date, not a standing fact.
+
+Paths under `kits/` and `planning/` in the operator docs point to the private
+rTech repo this kit came from; they are not in this repo.
 
 More docs: `START-HERE.md`, `installer.md`, `OPERATIONS-MANUAL.md`,
 `tiers/basic/README.md`, `CHANGELOG.md`.

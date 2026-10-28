@@ -65,15 +65,17 @@ responses. They appear in `results.json` as observations.
 
 ## 5. Named refusal (KIT-STANDARD § 4.9)
 
-**The scanner never scores a site it could not read.**
+**The scanner never scores a site it could not reach.**
 
-Deterministic trigger: the root document fetch does not return a 2xx HTML
-response — connection refused, DNS failure, timeout, a non-HTML content type,
-or an error status.
+Deterministic trigger: the root document fetch fails — connection refused, DNS
+failure, timeout — or returns a 5xx status. A 4xx status or a non-HTML content
+type is still scored, so check those by hand.
 
 What happens: **no grade is produced for that site.** `results.json` records
-the failure and what was attempted, and the site is reported as
-`NOT SCANNED — <the reason>`, not as a zero and not as an F. A zero means "the
+`"ok": false` and `"error": "unreachable (<status or connection error>)"`
+(its `score` and `grade` fields hold unused defaults; ignore them), and the
+report shows `—` for score and grade with that error, not a zero and not an
+F. A zero means "the
 site is readable and has none of these signals"; an unreachable host means "we
 do not know", and those two must never collapse into one number in front of a
 client.
@@ -90,8 +92,9 @@ unknown.
 
 1. Open `report.html` and confirm the site name and URL are the intended
    target.
-2. Open `results.json` and check the per-probe HTTP statuses. A wall of
-   non-200s means section 5 applies, whatever the score says.
+2. Open `results.json` and check `ok` and `error`. `results.json` does not
+   record per-probe HTTP statuses; if the score looks too low, open the URL
+   and its `robots.txt` yourself to rule out a 4xx or a bot block.
 3. Check `parseability`. A site that renders everything through JavaScript
    scores low here by design — that IS the finding, not a scanner error.
 4. Every claim that leaves this kit for a client carries the date it was
