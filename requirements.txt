@@ -7,7 +7,7 @@ anyio==4.14.2
     # via httpx
 beautifulsoup4==4.15.0
     # via agent-ready-scanner
-certifi==2026.7.22
+certifi==2026.10.18
     # via
     #   httpcore
     #   httpx
@@ -29,7 +29,7 @@ pydantic==2.13.4
     # via agent-ready-scanner
 pydantic-core==2.46.4
     # via pydantic
-soupsieve==2.9.2
+soupsieve==4.0
     # via beautifulsoup4
 typing-extensions==4.16.0
     # via
